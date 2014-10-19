@@ -39,11 +39,12 @@ module.exports = {
 
         var config = games.load(publickey);
 		
+        //console.log(config);
+        
         if(!config) {
             if(testcallback) {
                 testcallback(false);
             }
-
             return output.terminate(payload, response, 1, "Invalid game (router.js:52)");
         }
 		
@@ -83,6 +84,9 @@ module.exports = {
         payload.ip = request.ip;
         payload.url = "https://" + request.headers.host + request.url;
 		payload.publickey = request.query.publickey;
+        
+        // Check for valid secret key - based on that few actions will be restricted
+        payload.secretkey = (payload.secretkey == config.secretkey) ? true : false;
 		
 		if(urlparams.query.debug) {
             payload.debug = urlparams.query.debug;

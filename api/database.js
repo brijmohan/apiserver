@@ -78,7 +78,7 @@ db.open(function (error, cnn) {
 		
 		// insert testing data
 		jobs.push(function() { 
-			cnn.collection("games").save({publickey: "testpublickey", privatekey: "testprivatekey" }, next); 
+			cnn.collection("games").save({publickey: "testpublickey", privatekey: "testprivatekey", secretkey: "testsecretkey" }, next); 
 		});
 		jobs.push(function() { 
 			cnn.collection("achievements").save({publickey: "testpublickey", achievement: "Super Mega Achievement #1", achievementkey: "secretkey" }, next); 

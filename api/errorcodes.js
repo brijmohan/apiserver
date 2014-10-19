@@ -8,6 +8,7 @@ module.exports = {
         Timeout: 3,
         InvalidRequest: 4,
         DoNotTrack: 5,
+        PermissionDenied: 6,
     
         GeoIPDisabled: 100,
     
@@ -51,6 +52,7 @@ module.exports = {
         "2": "Invalid game credentials. Make sure you use the keys you set up in your database",
         "3": "Request timed out",
         "4": "Invalid request",
+        "6": "Permission Denied! No valid secret key found.",
     
         // GeoIP Errors
         "100": "GeoIP API has been disabled for this game",

@@ -115,6 +115,12 @@ var leaderboards = module.exports = {
      * @param callback function(error, errorcode)
      */
     save: function(options, callback) {
+        
+        // Check for secret key
+        if(!options.secretkey) {
+            callback("Invalid secret key (api.leaderboards.save). Save not permitted!", errorcodes.PermissionDenied);
+            return;
+        }
 
         // defaults
         if(!options.source) {
@@ -240,6 +246,11 @@ var leaderboards = module.exports = {
     saveAndList: function(options, callback) {
         
         //console.log("---");
+        // Check for secret key
+        if(!options.secretkey) {
+            callback("Invalid secret key (api.leaderboards.saveAndList). Save not permitted!", errorcodes.PermissionDenied);
+            return;
+        }
 		
         leaderboards.save(options, function(error, errorcode, insertedid, insertedscore) {
 

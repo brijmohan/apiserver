@@ -25,6 +25,7 @@ if(process.env.testing) {
     gamelist["testpublickey"] = {
         publickey: "testpublickey",
         privatekey: "testprivatekey",
+        secretkey: "testsecretkey",
         enabled: true,
         leaderboards: true,
         playerlevels: true,

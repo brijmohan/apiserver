@@ -338,6 +338,12 @@ var achievements = module.exports = {
      * @param callback function(error, errorcode)
      */
     save: function(options, callback) {
+        
+        // Check for secret key
+        if(!options.secretkey) {
+            callback("Invalid secret key (api.achievements.save). Save not permitted!", errorcodes.PermissionDenied);
+            return;
+        }
 		
 		if(!options.playerid) {
 			callback("Missing playerid (api.achievements.save:129)", errorcodes.NoPlayerId);

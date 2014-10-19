@@ -137,6 +137,12 @@ module.exports = {
     
     rate: function(options, callback) {
         
+        // Check for secret key
+        if(!options.secretkey) {
+            callback("Invalid secret key (api.playerlevels.rate). Rating not permitted!", errorcodes.PermissionDenied);
+            return;
+        }
+        
         if(!options.levelid) {
             return callback("missing id", errorcodes.NoLevelId);
         }
@@ -279,6 +285,12 @@ module.exports = {
     },
 
     save: function(options, callback) {
+        
+        // Check for secret key
+        if(!options.secretkey) {
+            callback("Invalid secret key (api.playerlevels.save). Save not permitted!", errorcodes.PermissionDenied);
+            return;
+        }
         
         if(!options.name) {
             callback("missing name (api.playerlevels.save:168)", errorcodes.NoLevelName);
